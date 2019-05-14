@@ -1,0 +1,26 @@
+<!--pages/teacher/finalList/finalList.wxml-->
+<text class='namelist'>\n最终未点名学生名单如下：\n \n</text>
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">学号</view>
+    <view class="th">姓名</view>
+    <view class="th ">班级</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+    </view>
+  </block>
+</view>
+<view >
+      
+      <button bindtap='backtCourse'>返回课表</button>
+    
+	</view>

@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/teacher/finalList/finalList",
+    "pages/teacher/checkResult/checkResult",
+    "pages/student/summitCode/summitCode",
+    "pages/student/queryCourses/queryCourses",
+    "pages/teacher/queryCourses/queryCourses",
+    "pages/teacher/identifyCode/identifyCode",
+    "pages/index/index",
+
+    "pages/logs/logs",
+    "pages/register/tregister/tRegister",
+    "pages/register/sregister/sRegister"
+  ],
+  
+  "tabBar": {
+    "color": "#878787",
+    "selectedColor": "#ff8533",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home.active.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/student/summitCode/summitCode",
+        "iconPath": "images/logo.png",
+        "selectedIconPath": "images/logo.active.png",
+        "text": "点名啦"
+      },
+      {
+        "pagePath": "pages/teacher/identifyCode/identifyCode",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile.active.png",
+        "text": "课表"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

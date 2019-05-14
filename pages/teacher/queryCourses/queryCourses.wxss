@@ -1,0 +1,107 @@
+/* teacher/queryCourses.wxss */
+.img{
+    width: 100%;
+    height: 200px;
+}
+.index{
+    background-color: #FBF9FE;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    flex: 1;
+    min-height: 100%;
+    font-size: 16px;
+}
+.head{
+    padding: 40px;
+}
+.body{
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow: hidden;
+}
+.title{
+    font-size: 30px;
+}
+.desc{
+    margin-top: 5px;
+    color: #888888;
+    font-size: 14px;
+}
+
+.widgets__item{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.widgets__info{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    flex-direction: row;
+}
+.widgets__info_show{
+    opacity: .4;
+}
+.widgets__info-name{
+    flex: 1;
+}
+.widgets__info-img{
+    width: 30px;
+    height: 30px;
+}
+
+.widgets__list{
+    display: none;
+}
+.widgets__list_show{
+    display: block;
+}
+
+.widget{
+    position: relative;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.widget__arrow{
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    width: 8px;
+    height: 16px;
+}
+.widget__line{
+    content: " ";
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    right: 20px;
+    height: 1rpx;
+    background-color: #DFDFDF;
+}
+/*天气预报*/
+.weather{
+  overflow: hidden;
+  background: #cef;
+  color: #58b;
+  padding: 1%; 
+  position: relative；
+  
+  }
+.weather .section{ float: none; width: 80px; height: 80px; position: absolute; }
+.weather .other{ clear:both; padding-top: 5%; display: flex; }
+.weather .other view{ flex:1; text-align: center; }
+.other .border_r{ border-right: solid 1px #bbd; }
+.weather .other .title{font-size: 12px; color: #bbd; }
+.weather .other .info{ display: block; padding-top: 5%; }
+button {
+    margin-top: 5px;
+    width: 100px;
+    border-radius: 360px;
+    background: #673bb7;
+    color: white;
+    
+}

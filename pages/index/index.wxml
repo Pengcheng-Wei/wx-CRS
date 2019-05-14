@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+
+    </block>
+  </view>
+  
+  <view class="mt300">
+    <button type="primary" bindtap="goTeaRegister" class="w600">
+        I'm a teacher. 
+    </button>
+    <button bindtap="goStuRegister" class="mt60 w600 orange-btn" hover-class="orange-hover">
+        I'm a student.
+    </button>
+  </view>
+</view>

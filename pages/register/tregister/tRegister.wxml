@@ -1,0 +1,19 @@
+<!--pages/register/tregister/tRegister.wxml-->
+<view class="content">
+  \n
+  \n
+  \n
+  <view class="account">
+    <view class="title">职工号</view>
+    <view class="num"><input bindinput="accountInput" placeholder="您的工号" placeholder-style="color:#999999;"/></view>
+  </view>
+  <view class="hr"></view>
+   <view class="account">
+    <view class="title">手机号</view>
+    <view class="num"><input bindblur="pwdBlur" placeholder="关联该微信的手机号" password placeholder-style="color:#999999;"/></view>
+    
+  </view>
+  <view class="hr"></view>
+  <button class="btn" type="primary" bindtap="register">注册</button>
+</view>
+

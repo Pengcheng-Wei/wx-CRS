@@ -1,0 +1,19 @@
+/* pages/student/summitCode/summitCode.wxss */
+.body {
+  width: 90%;
+  margin:0 auto;
+}
+.phoneInput {
+  margin-top: 60px;
+  border: 1px solid #dedede;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+}
+.btnQuery {
+    margin-top: 5px;
+    width: 200px;
+    border-radius: 360px;
+    background: #673bb7;
+    color: white;
+}

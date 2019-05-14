@@ -1,0 +1,66 @@
+/* pages/teacher/identifyCode/identifyCode.wxss */
+.container1{
+  height: 100%;
+  background-color: #f5f5f5;
+	padding:15px 10px;
+}
+.section{
+	margin-bottom: 10px;
+}
+.section_title{
+	font-size: 17px;
+	color:#999;
+}
+
+
+.section_body{
+	margin-top: 15px;
+}
+.panel {
+  background: #fff;
+  border-radius: 3px;
+  padding: 5px 10px;
+  text-align:center
+}
+.identifycode{
+  color: green;
+  font-size: 25px;
+}
+.totalNum{
+  color: green;
+  font-size: 20px;
+}
+.namelist{
+  background: #fff;
+  border-radius: 3px;
+  padding: 5px 10px;
+  display: flex;
+}
+
+.yidao{
+    margin-top: 5px;
+    margin-left: 40px;
+    width: 80px;
+    border-radius: 360px;
+    background: #673bb7;
+    color: white;
+}
+button{
+    margin-top: 5px;
+    
+    width: 200px;
+    border-radius: 360px;
+    background: #673bb7;
+    color: white;
+}
+.weather{
+  overflow: hidden;
+  background: #cef;
+  color:#999;
+  padding: 1%; 
+  position: relative
+  }
+  .uncome{
+    color: red;
+    font-size: 22px;
+  }
