@@ -12,7 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('hhhh=' + options.openid +options.role),
+      this.data.openid = options.openid,
+      this.data.role = options.role
   },
 
   /**
@@ -79,6 +81,8 @@ Page({
   },
   //处理register的触发事件
   register: function (e) {
+    console.log(this.data.openid + this.data.role)
+    /*
     wx.request({
       url: 'http://localhost:8080/API/register',
       //定义传到后台的数据
@@ -101,6 +105,7 @@ Page({
         console.log("调用API失败");
       }
     })
+    */
 
   }
 })

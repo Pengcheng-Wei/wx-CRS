@@ -24,11 +24,7 @@
   position: absolute;
   right: 20px;
 }
-.btn{
-  width: 90%;
-  margin-top:40px;
-  color: #999999;
-}
+
 .operate{
    display: flex;
    flex-direction: row;
@@ -46,4 +42,12 @@
 }
 .register view{
   margin: 0 auto;
+}
+button{
+    margin-top: 5px;
+    
+    width: 200px;
+    border-radius: 360px;
+    background: #673bb7;
+    color: white;
 }

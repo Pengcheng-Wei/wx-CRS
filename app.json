@@ -1,15 +1,15 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/register/tregister/tRegister",
     "pages/teacher/finalList/finalList",
     "pages/teacher/checkResult/checkResult",
     "pages/student/summitCode/summitCode",
     "pages/student/queryCourses/queryCourses",
     "pages/teacher/queryCourses/queryCourses",
     "pages/teacher/identifyCode/identifyCode",
-    "pages/index/index",
 
     "pages/logs/logs",
-    "pages/register/tregister/tRegister",
     "pages/register/sregister/sRegister"
   ],
   

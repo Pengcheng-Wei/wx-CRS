@@ -13,7 +13,7 @@
     <button type="primary" bindtap="goTeaRegister" class="w600">
         I'm a teacher. 
     </button>
-    <button bindtap="goStuRegister" class="mt60 w600 orange-btn" hover-class="orange-hover">
+    <button bindtap="goStuRegister" type="primary" class="mt60 w600 orange-btn" >
         I'm a student.
     </button>
   </view>
