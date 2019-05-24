@@ -2,54 +2,30 @@
 <view class="index">
 
 <view class="weather">
-    <image class="section" src="{{now.cond.src}}"></image>
-    <!-->
-    <view class="aside">
-      <text class="temperature">{{now.tmp}}℃</text>
-      <text>{{now.cond.txt}} | {{now.wind.dir}}{{now.wind.sc}}级</text>
-    </view>
-    -->
-    <text>欢迎：吕布 同学\n\n</text> <text>    学号为：2015101666\n\n</text>
+    <text>欢迎：{{student.sName}} 同学\n\n</text> <text>    学号为：{{student.sId}}\n\n</text>
     
-    <text>今天是 2019年5月13号 周一\n课程安排如下：</text>
+    <text>今天是 {{dateTime}} {{dateWeek}} \n课程安排如下：</text>
     
   </view>
   
-<view class="widgets__item">
-      <view id="interact" class="widgets__info {{interactShow ? 'widgets__info_show' : ''}}" bindtap="widgetsToggle">
-         <view class="other">
-            <text>节次：一二节\n</text>
-            <text>课程名称：\n《计算机网络》\n</text>
-            <text>所在教室：B108\n</text>
-            <text>授课老师：波涛\n</text>
-          </view>
-          <button>进入点名</button>
+<view class="widgets__item"  wx:for="{{sc}}" wx:for-item="course">
+      <view id="interact" class="widgets__info {{interactShow ? 'widgets__info_show' : ''}}">
+         
+            <view class="other">
+            
+              <text>节次：{{course.cSession}}\n</text>
+              <text>课程名称：\n{{course.courseName}}\n</text>
+              <text>所在教室：{{course.classRoomName}}\n</text>
+              <text>授课老师：{{course.tName}}\n</text>
+
+            </view>
+            <button wx:if="{{course.cSession != '一二节'}}" disabled='true' class='buttonStyle'>进入点名</button>
+            <button wx:else class='buttonStyle'>进入点名</button>
+
       </view>
                 
 </view>
 
-<view class="widgets__item">
-      <view id="interact" class="widgets__info {{interactShow ? 'widgets__info_show' : ''}}" bindtap="widgetsToggle">
-         <view class="other">
-            <text>节次：三四节\n</text>
-            <text>课程名称：\n《计算机组成原理》\n</text>
-            <text>所在教室：B125\n</text>
-            <text>授课老师：江河\n</text>
-          </view>
-          <button disabled='true' class="bntPos">进入点名</button>
-      </view>          
-</view>
-<view class="widgets__item">
-      <view id="interact" class="widgets__info {{interactShow ? 'widgets__info_show' : ''}}" bindtap="widgetsToggle">
-         <view class="other">
-            <text>节次：五六节\n</text>
-            <text>课程名称：\n《数据结构》\n</text>
-            <text>所在教室：A107\n</text>
-            <text>授课老师：大海\n</text>
-          </view>
-          <button disabled='true' class="bntPos">进入点名</button>
-      </view>          
-</view>
 
 
 </view>

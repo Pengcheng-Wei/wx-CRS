@@ -58,21 +58,19 @@ Page({
         if (res.code) {
           // 发起网络请求
           wx.request({
-            url: 'https://api.weixin.qq.com/sns/jscode2session',
+            url: 'http://localhost:8080/crs/student/testController.shtml',
             data: {
-              appid: 'wx15764070fee38012',
-              secret: '3208ddfe27dab73e3504a5ccfddf1222',
-              js_code: res.code,
-              grant_type: 'authorization_code'
+              js_code: res.code, 
             },
             success(res) {
-              console.log(res.data.openid),
-              wx.navigateTo({
-                url: '/pages/register/tregister/tRegister?openid=' + res.data.openid + '&role=teacher',
+              console.log(res.data.openid);
+              console.log(res.data.bind);
+              wx.redirectTo({
+              url: '/pages/register/tregister/tRegister?openid=' + res.data.openid + '&role=teacher',
               })
             },
             fail(){
-              console.log("shibai!!!")
+              console.log("失败!!!")
             }
           })
           
@@ -84,35 +82,7 @@ Page({
   
   },
   goStuRegister: function(){
-    wx.login({
-
-      success(res) {
-        if (res.code) {
-          // 发起网络请求
-          wx.request({
-            url: 'https://api.weixin.qq.com/sns/jscode2session',
-            data: {
-              appid: 'wx15764070fee38012',
-              secret: '3208ddfe27dab73e3504a5ccfddf1222',
-              js_code: res.code,
-              grant_type: 'authorization_code'
-            },
-            success(res) {
-              
-                wx.navigateTo({
-                  url: '/pages/register/sregister/sRegister?openid=' + res.data.openid + '&role=student',
-                })
-            },
-            fail(){
-              console.log('登录失败！')
-            }
-          })
-
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
+    
 
   }
 })

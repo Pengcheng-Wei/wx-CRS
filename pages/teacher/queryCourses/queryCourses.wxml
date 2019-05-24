@@ -2,38 +2,30 @@
 <view class="index">
 
 <view class="weather">
-    <text>欢迎：波涛 老师\n\n</text> <text>    职工号为：2010101178\n\n</text>
+    <text>欢迎：{{teacher.tName}} 老师\n\n</text> <text>    职工号为：{{teacher.tId}}\n\n</text>
     
-    <text>今天是 2019年5月13号 周一\n课程安排如下：</text>
+    <text>今天是 {{dateTime}} {{dateWeek}} \n课程安排如下：</text>
     
-</view>
+  </view>
+  
+<view class="widgets__item"  wx:for="{{sc}}" wx:for-item="course">
+      <view id="interact" class="widgets__info">
+         
+            <view class="other">
+            
+              <text>节次：{{course.cSession}}\n</text>
+              <text>课程名称：\n《{{course.courseName}}》\n</text>
+              <text>所在教室：{{course.classRoomName}}\n</text>
+              <text>所上班级：\n{{course.className}}\n</text>
 
-<view class="widgets__item">
-      <view id="interact" class="widgets__info {{interactShow ? 'widgets__info_show' : ''}}" bindtap="widgetsToggle">
-         <view class="other">
-            <text>节次：一二节\n</text>
-            <text>课程名称：《计算机网络》\n</text>
-            <text>所在教室：B108\n</text>
-            <text>所上班级：\n</text>
-            <text>物联网班、软件外包班</text>
-          </view>
-          <button type='disable'>点名</button>
+            </view>
+            <button wx:if="{{course.cSession != '一二节'}}" disabled='true' class='buttonStyle'>进入点名</button>
+            <button wx:else class='buttonStyle'>进入点名</button>
+
       </view>
                 
 </view>
 
-<view class="widgets__item">
-      <view id="interact" class="widgets__info {{interactShow ? 'widgets__info_show' : ''}}" bindtap="widgetsToggle">
-         <view class="other">
-            <text>节次：五六节\n</text>
-            <text>课程名称：《计算机网络》\n</text>
-            <text>所在教室：B108\n</text>
-            <text>所上班级：\n</text>
-            <text>普本班</text>
-          </view>
-          <button disabled='true'>点名</button>
-      </view>
-                
-</view>
+
 
 </view>

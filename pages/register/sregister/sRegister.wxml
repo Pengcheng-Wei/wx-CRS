@@ -12,4 +12,8 @@
 
   <text>\n</text>
   <button class="btn" type="primary" bindtap="register">与该微信号进行绑定</button>
+  <toast hidden="{{toastHidden}}" bindchange="onToastChanged" duration="1000">
+                    绑定成功！
+  </toast>
+   
 </view>

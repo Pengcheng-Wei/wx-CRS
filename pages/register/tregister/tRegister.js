@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('hhhh=' + options.openid +options.role),
+    
       this.data.openid = options.openid,
       this.data.role = options.role
   },
@@ -79,33 +79,45 @@ Page({
       this.setData({ password: pwd });//把获取到的密码赋值给date中的password
     }
   },
+  onToastChanged: function () {
+    this.setData({
+      toastHidden: true
+    });
+  },
   //处理register的触发事件
   register: function (e) {
-    console.log(this.data.openid + this.data.role)
-    /*
+    var that = this;
+
     wx.request({
-      url: 'http://localhost:8080/API/register',
+      url: 'http://localhost:8080/crs/u/submitLogin.shtml',
       //定义传到后台的数据
       data: {
-        //从全局变量data中获取数据
-        account: this.data.account,
-        password: this.data.password
+        pswd: this.data.account,
+        email: this.data.account,
+        role: this.data.role,
+        openid: this.data.openid,
+        rememberMe: true
       },
-      method: 'get',//定义传到后台接受的是post方法还是get方法
+      method: 'post',//定义传到后台接受的是post方法还是get方法
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
-        console.log("调用API成功");
-        wx.switchTab({
-          url: '../login/login'　　// 注册成功，跳转到登陆页面
-        })
+        if (res.statusCode == 200) {
+          that.setData({
+            toastHidden: false, //吐司  
+          });
+          
+          wx.redirectTo({
+            url: '/pages/teacher/queryCourses/queryCourses'
+          })
+          
+        }
       },
       fail: function (res) {
         console.log("调用API失败");
       }
     })
-    */
 
   }
 })

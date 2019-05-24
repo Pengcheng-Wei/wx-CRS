@@ -1,12 +1,13 @@
 // pages/register/tregister/tRegister.js
 
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
-
+    toastHidden: true, //吐司  
+    toastText: '',//吐司文本  
   },
 
   /**
@@ -72,44 +73,41 @@ Page({
       this.setData({ account: userid });//把获取到的密码赋值给date中的password
     }
   },
-  updateById:function() {
-    console.log(this.data.account)
-  
+  onToastChanged: function () {
+    this.setData({
+      toastHidden: true
+    });
   },
   //处理register的触发事件
   register: function (e) {
     var that = this;
-    //data = { pswd: pswd, email: username, rememberMe: false };
+    
     wx.request({
       url: 'http://localhost:8080/crs/u/submitLogin.shtml',
       //定义传到后台的数据
       data: {
         pswd: this.data.account,
         email: this.data.account,
+        role: this.data.role,
+        openid: this.data.openid,
         rememberMe:false
       },
-      method: 'POST',//定义传到后台接受的是post方法还是get方法
+      method: 'post',//定义传到后台接受的是post方法还是get方法
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
-        wx.request({
-          url: 'http://localhost:8080/crs/student/updateById.shtml',
-          data: {
-            id: that.data.account,
-            openid: that.data.openid,
-            role: that.data.role
-          },
-          header: {
-            'content-type': 'application/x-www-form-urlencoded' // 默认值
-          },
-          success: function (res) {
-            console.log(res.data)
-          },
-          fail(res) {
-            console.log(res.data)
-          }
-        })
+
+          that.setData({
+            toastHidden: false, //吐司  
+          });
+          
+          wx.setStorageSync("sessionId", res.data.sessionId);
+          console.log(wx.getStorageSync("sessionId"));
+          wx.redirectTo({
+            url: '/pages/student/queryCourses/queryCourses?sid=' + that.data.account
+          })
+        
       },
       fail: function (res) {
         console.log("调用API失败");

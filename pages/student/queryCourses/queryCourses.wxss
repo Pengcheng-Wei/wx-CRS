@@ -96,7 +96,7 @@ button::after{
 	border: none; 
 }
 
-button {
+.buttonStyle {
     margin-top: 5px;
     width: 100px;
     border-radius: 360px;
