@@ -2,13 +2,13 @@
 <view class="container1">
 	<view class="section panel">
 	  <text class="section_title">发送给学生的验证码为：\n</text>
-	  <text class="identifycode">7679</text>
+	  <text class="identifycode">{{randomNum}}</text>
 	</view>
 
   <view class="section panel">
 	  <view class="section_title">
 	  	<text>应到人数： \n</text>
-      <text class="totalNum">60 </text>人
+      <text class="totalNum">{{cnt}} </text>人
 	  </view>
 	</view>
   
@@ -18,9 +18,9 @@
 	    <slider 
 	    	bindchange="changeRestTime" 
 	    	show-value="true" 
-	    	min="5"
-	    	max="60"
-	    	value="55"
+	    	min="0"
+	    	max="{{cnt}}"
+	    	value="{{currentCnt}}"
 	    	left-icon="cancel" 
 	    	right-icon="success_no_circle"/>
 	  </view>

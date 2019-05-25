@@ -8,7 +8,7 @@
     
   </view>
   
-<view class="widgets__item"  wx:for="{{sc}}" wx:for-item="course">
+<view class="widgets__item"  wx:for="{{sc}}" wx:for-item="course" wx:key="unique">
       <view id="interact" class="widgets__info">
          
             <view class="other">
@@ -19,8 +19,16 @@
               <text>所上班级：\n{{course.className}}\n</text>
 
             </view>
-            <button wx:if="{{course.cSession != '一二节'}}" disabled='true' class='buttonStyle'>进入点名</button>
-            <button wx:else class='buttonStyle'>进入点名</button>
+            <button wx:if="{{course.cSession != '一二节'}}" disabled='true' 
+            class='buttonStyle' bindtap='calling' 
+            data-session='{{course.cSession}}' 
+            data-tid='{{teacher.tId}}'
+            data-classname='{{course.className}}'>进入点名</button>
+            
+            <button wx:else class='buttonStyle' bindtap='calling'
+             data-session='{{course.cSession}}' 
+             data-tid='{{teacher.tId}}'
+             data-classname='{{course.className}}'>进入点名</button>
 
       </view>
                 

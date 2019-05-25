@@ -48,8 +48,17 @@ Page({
       }
     })
 
-
   },
+  calling: function (event){
+    
+    var tId = event.currentTarget.dataset.tid;
+    var className = event.currentTarget.dataset.classname;
+    //console.log(tId);
+    console.log(tId);
+    wx.redirectTo({
+      url: '/pages/teacher/identifyCode/identifyCode?tId=' + tId + '&className=' + className,
+    })
+  }
 }
 
 );

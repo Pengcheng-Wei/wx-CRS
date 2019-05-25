@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/student/queryCourses/queryCourses",
+    "pages/student/summitCode/summitCode",
     "pages/teacher/queryCourses/queryCourses",
+    "pages/teacher/identifyCode/identifyCode",
     "pages/home/home",
     "pages/index/index",
-    "pages/student/queryCourses/queryCourses",
     "pages/register/tregister/tRegister",
     "pages/teacher/finalList/finalList",
     "pages/teacher/checkResult/checkResult",
-    "pages/student/summitCode/summitCode",
-    "pages/teacher/identifyCode/identifyCode",
 
     "pages/logs/logs",
     "pages/register/sregister/sRegister"

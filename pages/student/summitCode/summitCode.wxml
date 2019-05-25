@@ -1,8 +1,9 @@
 <!--pages/student/summitCode/summitCode.wxml-->
 <view class="body">
-  <input type="number" maxlength="11" auto-focus class="phoneInput" bindinput="listenPhoneInput" />
+  <input type="number" maxlength="11" auto-focus class="phoneInput" name='randomNum' bindinput="randomNumInput"/>
   <text>\n</text>
-  <button  bindtap="queryHome4Phone" class="btnQuery"> 提交验证码 </button>
+  
+  <button  bindtap="summit" class="btnQuery"> 提交验证码 </button>
   <text class="result" wx:if="{{province != ''}}">
     {{message}}
   </text>

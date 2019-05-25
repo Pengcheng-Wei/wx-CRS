@@ -22,7 +22,8 @@ Page({
       url: 'http://localhost:8080/crs/student/studentQueryCourses.shtml',
       //定义传到后台的数据
       data: {
-        id: that.data.sid,
+        id:'2015101222',
+        //id: that.data.sid,
         week:'周一'
         //week: dateV.week 可用
       },
@@ -43,7 +44,13 @@ Page({
       }
     })
 
-
+  },
+  calling: function (event){
+    var tId = event.currentTarget.dataset.tid;
+    var sId = event.currentTarget.dataset.sid;
+    wx.navigateTo({
+      url: '/pages/student/summitCode/summitCode?tId=' + tId + '&sId=' + sId,
+    })
   },
 }
 

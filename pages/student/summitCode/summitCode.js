@@ -5,62 +5,81 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+   
+   
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      tId : options.tId,
+      sId : options.sId
+
+    })
+    
+
+
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onToastChanged: function () {
+    this.setData({
+      toastHidden: true
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  randomNumInput: function(e){
+    this.setData({
+      randomNum: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  summit: function(e){
+    var that = this;
+    
+    wx.request({
+      url: 'http://localhost:8080/crs/student/checkRandomNum.shtml',
+      //定义传到后台的数据
+      data: {
+        tId: that.data.tId,
+        
+        sId: that.data.sId,
+        
+        randomNum: that.data.randomNum
+      },
+      method: 'post',//定义传到后台接受的是post方法还是get方法
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data.result);
+        
+        if(res.data.result == true){
+          wx.showToast({
+            title: '成功！',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          });
+          for(var i=0;i<1000;i++)
+            for (var j = 0; j < 10000; j++);
+          wx.navigateBack({
+            delta: 1,
+          })
+        }
+        else{
+          wx.showToast({
+            title: '验证码错误！',
+            icon: 'loading',
+            duration: 1000,
+            mask: true
+          });
+        }
+        
+      },
+      fail: function (res) {
+        console.log("调用API失败");
+      }
+    })
   }
+ 
 })
