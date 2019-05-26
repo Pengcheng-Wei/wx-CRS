@@ -1,18 +1,53 @@
 Page({
   data: {
-    listData: [
-      { "code": "张飞", "text": "2015101111", "type": "软件外包班" },
-      { "code": "刘备", "text": "2015101222", "type": "软件外包班" },
-      { "code": "关羽", "text": "2015101333", "type": "软件外包班" },
-      { "code": "赵云", "text": "2015101444", "type": "软件外包班" }
-    ]
+  
   },
-  onLoad: function () {
-    console.log('onLoad')
+  onLoad: function (options) {
+    var that = this;
+    that.setData({
+      tId : options.tId
+    })
+    wx.request({
+      url: 'http://localhost:8080/crs/teacher/checkResult.shtml',
+      //定义传到后台的数据
+      data: {
+        tId: that.data.tId
+      },
+      method: 'post',//定义传到后台接受的是post方法还是get方法
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+
+        that.setData({
+          students: res.data.students,
+        })
+      },
+      fail: function (res) {
+        console.log("调用API失败");
+      }
+    })
   },
   backtCourse: function () {
-    wx.navigateTo({
-      url: '/pages/teacher/queryCourses/queryCourses'
+    wx.request({
+      url: 'http://localhost:8080/crs/teacher/updateParticiCnt.shtml',
+      //定义传到后台的数据
+      data: {
+        tId: this.data.tId
+      },
+      method: 'post',//定义传到后台接受的是post方法还是get方法
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        console.log("提交成功");
+      },
+      fail: function (res) {
+        console.log("调用API失败");
+      }
+    })
+    wx.redirectTo({
+      url: '/pages/teacher/queryCourses/queryCourses?tId=' + this.data.tId
     })
   }
 

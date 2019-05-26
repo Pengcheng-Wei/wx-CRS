@@ -15,7 +15,11 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    this.setData({
+      openid : options.openid
+    });
+    console.log(this.data.openid);
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -52,37 +56,18 @@ Page({
     })
   },
   goTeaRegister: function(){
-    wx.login({
-      
-      success(res) {
-        if (res.code) {
-          // 发起网络请求
-          wx.request({
-            url: 'http://localhost:8080/crs/student/testController.shtml',
-            data: {
-              js_code: res.code, 
-            },
-            success(res) {
-              console.log(res.data.openid);
-              console.log(res.data.bind);
-              wx.redirectTo({
-              url: '/pages/register/tregister/tRegister?openid=' + res.data.openid + '&role=teacher',
-              })
-            },
-            fail(){
-              console.log("失败!!!")
-            }
-          })
-          
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
+    wx.setStorageSync("myrole", "teacher");
+    wx.redirectTo({
+    url: '/pages/register/tregister/tRegister?openid=' + this.data.openid + '&role=teacher',
     })
-  
+    
+      
+
   },
   goStuRegister: function(){
-    
-
+    wx.setStorageSync("myrole", "student");
+    wx.redirectTo({
+      url: '/pages/register/sregister/sRegister?openid=' + this.data.openid + '&role=student',
+    })
   }
 })

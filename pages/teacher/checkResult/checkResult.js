@@ -1,19 +1,82 @@
-var status = true;
+
+
 Page({
-  toastShow: function (event) {
-    console.log("触发了点击事件，弹出toast")
-    status = false
-    this.setData({ status: status })　　　　//setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
-  },
-  toastHide: function (event) {
-    console.log("触发bindchange，隐藏toast")
-    status = true
-    this.setData({ status: status })
-    wx.navigateTo({
-      url: '/pages/register/tregister/tRegister'
-    })
-  },
   data: {
-    status: status　　　　　　　　　　　　//data里面的属性可以传递到视图
-  }
-})
+   
+    
+  },
+  onLoad: function (options) {
+    var that = this;
+    that.setData({
+      cnt:options.cnt,
+      currentCnt:options.currentCnt,
+      tId:options.tId
+    })
+
+    wx.request({
+      url: 'http://localhost:8080/crs/teacher/checkResult.shtml',
+      //定义传到后台的数据
+      data: {
+        tId: that.data.tId
+      },
+      method: 'post',//定义传到后台接受的是post方法还是get方法
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        that.setData({
+          students: res.data.students,
+        })
+      },
+      fail: function (res) {
+        console.log("调用API失败");
+      }
+    })
+
+  },
+  buqian: function (event) {
+    var that = this;
+    var sId = event.currentTarget.dataset.sid;
+    var tId = this.data.tId;
+    wx.request({
+      url: 'http://localhost:8080/crs/teacher/updateResign.shtml',
+      //定义传到后台的数据
+      data: {
+        tId: tId,
+        sId: sId,
+      },
+      method: 'post',//定义传到后台接受的是post方法还是get方法
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        wx.showToast({
+          title: '补签成功！',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        });
+        console.log(that.data.currentCnt);
+        
+        var num = ++that.data.currentCnt;
+        console.log(num);
+        that.setData({
+          currentCnt: num
+        });
+
+        console.log(that.data.currentCnt);
+      },
+      fail: function (res) {
+        console.log("调用API失败");
+      }
+    });
+    
+  },
+summitla:function(){
+  wx.redirectTo({
+    url: '/pages/teacher/finalList/finalList?tId='+this.data.tId,
+  })
+}
+},
+
+);

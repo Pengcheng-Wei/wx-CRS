@@ -13,20 +13,17 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
-    /**
-     * 
-     *
+
     that.setData({
-      sid: options.sid
-    })
-     */
+      tId: options.tId
+    });
     
 
     wx.request({
       url: 'http://localhost:8080/crs/teacher/teacherQueryCourses.shtml',
       //定义传到后台的数据
       data: {
-        id:'2010001',
+        id:that.data.tId,
         //id: that.data.sid,
         week: '周一'
         //week: dateV.week 可用
@@ -36,7 +33,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
-        console.log(res.statusCode);
+
         that.setData({
           sc: res.data.sc,
           teacher: res.data.teacher
@@ -53,8 +50,7 @@ Page({
     
     var tId = event.currentTarget.dataset.tid;
     var className = event.currentTarget.dataset.classname;
-    //console.log(tId);
-    console.log(tId);
+
     wx.redirectTo({
       url: '/pages/teacher/identifyCode/identifyCode?tId=' + tId + '&className=' + className,
     })

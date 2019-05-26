@@ -28,7 +28,7 @@
 
 	<view class="section panel">
 	  <view class="section_title">
-	  	<button>结束点名</button>
+	  	<button bindtap='finishCalling'>结束点名</button>
 	  </view>
 	</view>
 

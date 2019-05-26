@@ -10,7 +10,7 @@ App({
     wx.login({
       
       success(res) {
-        /*
+        
         if (res.code) {
           // 发起网络请求
           wx.request({
@@ -19,43 +19,30 @@ App({
               js_code: res.code,
             },
             success(res) {
-              console.log(res.data.openid);
-              console.log(res.data.bind);
-              wx.setStorageSync("sessionId", res.data.sessionId);
-              console.log("sessionid=" + res.data.sessionId);
-              var that = res;
-              if (res.data.bind == "false") {
+
+              
+              if (res.data.bind == 'false') {
                 wx.redirectTo({
-                  url:'/pages/index/index'
-                  //url: '/pages/register/sregister/sRegister?openid=' + res.data.openid + '&role=student',
+                  url: '/pages/index/index?openid=' + res.data.openid
                 })
               }
-              else {
-                wx.request({
-                  url: 'http://localhost:8080/crs/u/submitLogin.shtml',
-                  //定义传到后台的数据
-                  data: {
-                    pswd: res.data.student.sId,
-                    email: res.data.student.sId,
-                    openid: res.data.openid,
-                    rememberMe: false,
-                    JSESSIONID:wx.getStorageSync("sessionId")
-                  },
-                  method: 'post',//定义传到后台接受的是post方法还是get方法
-                  header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 默认值
-                  },
-                  success: function (res) {
-                    wx.redirectTo({
-                      url: '/pages/student/queryCourses/queryCourses?sid=' + that.data.student.sId
-                    })
-                  },
-                  fail: function (res) {
-                    console.log("调用API失败");
-                  }
-                });
+              else if (res.data.bind == 'true'){
 
+                var role = wx.getStorageSync("myrole");
+
+                if(role == "teacher"){
+                 wx.redirectTo({
+                      url: '/pages/' + role +'/queryCourses/queryCourses?tId=' + res.data.teacher.tId + '&openid='+res.data.openid 
+                    });
+                }
+                if(role == "student"){
+                  wx.redirectTo({
+                    url: '/pages/' + role + '/queryCourses/queryCourses?sId=' + res.data.student.sId + '&openid=' + res.data.openid 
+                  });
+                }
+                
               }
+
             },
             fail() {
               console.log("失败!!!")
@@ -65,7 +52,7 @@ App({
         } else {
           console.log('登录失败！' + res.errMsg)
         }
-        */
+        
       }
     }),
     // 获取用户信息

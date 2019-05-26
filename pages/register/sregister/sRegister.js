@@ -14,16 +14,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.openid = options.openid,
-    this.data.role = options.role
+    this.setData({
+      openid : options.openid,
+      role : options.role
+    })
+
   },
 
  
   //处理accountInput的触发事件
    accountInput: function (e) {
-    var userid = e.detail.value;//从页面获取到用户输入的用户名/邮箱/手机号
+    var userid = e.detail.value;
     if (userid != '') {
-      this.setData({ account: userid });//把获取到的密码赋值给date中的password
+      this.setData({ sId: userid });
     }
   },
   onToastChanged: function () {
@@ -39,8 +42,8 @@ Page({
       url: 'http://localhost:8080/crs/u/submitLogin.shtml',
       //定义传到后台的数据
       data: {
-        pswd: this.data.account,
-        email: this.data.account,
+        pswd: this.data.sId,
+        email: this.data.sId,
         role: this.data.role,
         openid: this.data.openid,
         rememberMe:false
@@ -54,11 +57,9 @@ Page({
           that.setData({
             toastHidden: false, //吐司  
           });
-          
-          wx.setStorageSync("sessionId", res.data.sessionId);
-          console.log(wx.getStorageSync("sessionId"));
+
           wx.redirectTo({
-            url: '/pages/student/queryCourses/queryCourses?sid=' + that.data.account
+            url: '/pages/student/queryCourses/queryCourses?sid=' + that.data.sId
           })
         
       },

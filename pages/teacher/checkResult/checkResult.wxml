@@ -3,71 +3,28 @@
 <view class="container1">
 <view class="weather">
       <text class="section_title">应到：</text>
-      <text>60 人\n</text> <text>实到：</text> <text class='identifycode'>55</text>
-      <text>人\n 未到：</text><text class="uncome">5 </text>
+      <text>{{cnt}} 人\n</text> <text>实到：</text> <text class='identifycode'>{{currentCnt}}</text>
+      <text>人\n 未到：</text><text class="uncome">{{cnt-currentCnt}}</text>
       <text>人\n\n未到学生名单如下：</text>
 </view>
   <text>\n</text>
-	<view class="section namelist">
+	<view class="section namelist" wx:for="{{students}}" wx:for-item="student" wx:key="unique">
     <view>
-      <text>姓名：张飞\n</text>
-      <text>学号：2015101111\n</text>
-      <text>所属班级：软件外包班\n</text>
+      <text>姓名：{{student.sName}}\n</text>
+      <text>学号：{{student.sId}}\n</text>
+      <text>所属班级：{{student.className}}\n</text>
     </view>
       
     <view class=''>
-      <button class="yidao">补签</button>
+      <button class="yidao" bindtap='buqian' data-sid='{{student.sId}}' >补签</button>
       </view>
 	</view>
+
+  
+ 
   <view class="section namelist">
-    <view>
-      <text>姓名：刘备\n</text>
-      <text>学号：2015101666\n</text>
-      <text>所属班级：软件外包班\n</text>
-    </view>
       
-    <view class=''>
-      <button class="yidao">补签</button>
-      </view>
-	</view>
-  <view class="section namelist">
-    <view>
-      <text>姓名：关羽\n</text>
-      <text>学号：2015101333\n</text>
-      <text>所属班级：软件外包班\n</text>
-    </view>
-      
-    <view class=''>
-      <button class="yidao">补签</button>
-      </view>
-	</view>
-  <view class="section namelist">
-    <view>
-      <text>姓名：赵云\n</text>
-      <text>学号：2015101444\n</text>
-      <text>所属班级：软件外包班\n</text>
-    </view>
-      
-    <view class=''>
-      <button class="yidao">补签</button>
-      </view>
-	</view>
-  <view class="section namelist">
-    <view>
-      <text>姓名：诸葛亮\n</text>
-      <text>学号：2015101555\n</text>
-      <text>所属班级：软件外包班\n</text>
-    </view>
-      
-    <view class=''>
-      <button class="yidao">补签</button>
-    </view>
-	</view>
-  <view class="section namelist">
-      <toast hidden="{{status}}" duration="1000" bindchange="toastHide">
-          提交成功
-      </toast>
-      <button bindtap="toastShow">提交</button>
+      <button bindtap="summitla">提交</button>
     
 	</view>
   

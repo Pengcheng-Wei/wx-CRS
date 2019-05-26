@@ -15,14 +15,14 @@ Page({
     
     var that = this;
     that.setData({
-      sid:options.sid
+      sId:options.sId
     })
     
     wx.request({
       url: 'http://localhost:8080/crs/student/studentQueryCourses.shtml',
       //定义传到后台的数据
       data: {
-        id:'2015101222',
+        id: that.data.sId,
         //id: that.data.sid,
         week:'周一'
         //week: dateV.week 可用
