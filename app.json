@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/student/queryCourses/queryCourses",
     "pages/teacher/finalList/finalList",
     "pages/teacher/checkResult/checkResult",
-    "pages/student/queryCourses/queryCourses",
     "pages/student/summitCode/summitCode",
     "pages/teacher/queryCourses/queryCourses",
     "pages/teacher/identifyCode/identifyCode",

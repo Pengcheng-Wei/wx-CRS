@@ -57,13 +57,18 @@ Page({
       },
       success: function (res) {
         if (res.statusCode == 200) {
-          that.setData({
-            toastHidden: false, //吐司  
+          wx.showToast({
+            title: '绑定成功！',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
           });
+          setTimeout(function () {
+            wx.redirectTo({
+              url: '/pages/teacher/queryCourses/queryCourses?tId=' + that.data.tId
+            })
+          }, 1000)
           
-          wx.redirectTo({
-            url: '/pages/teacher/queryCourses/queryCourses?tId=' + that.data.tId
-          })
           
         }
       },

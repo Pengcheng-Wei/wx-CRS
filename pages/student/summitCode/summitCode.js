@@ -60,7 +60,7 @@ Page({
             duration: 1000,
             mask: true
           });
-          for(var i=0;i<1000;i++)
+          for(var i=0;i<10000;i++)
             for (var j = 0; j < 10000; j++);
           wx.navigateBack({
             delta: 1,

@@ -1,3 +1,9 @@
 <!--pages/home/home.wxml-->
-<image src='/images/qilu.jpg'></image>
-齐鲁师范学院课堂点名系统
+<view class="container1">
+ <image bindtap="bindViewTap" class="userinfo-avatar" src="/images/qilu.jpg" mode="cover"></image>
+
+ <text class='fontStyle'>\n齐鲁师范课堂点名系统</text>
+</view>
+<view class="container1">
+ 
+</view>

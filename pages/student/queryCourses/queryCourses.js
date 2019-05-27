@@ -12,7 +12,7 @@ Page({
     
   },
   onLoad: function (options) {
-    
+   
     var that = this;
     that.setData({
       sId:options.sId
@@ -43,7 +43,7 @@ Page({
         console.log("调用API失败");
       }
     })
-
+ 
   },
   calling: function (event){
     var tId = event.currentTarget.dataset.tid;

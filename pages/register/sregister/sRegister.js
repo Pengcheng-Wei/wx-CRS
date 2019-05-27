@@ -29,11 +29,7 @@ Page({
       this.setData({ sId: userid });
     }
   },
-  onToastChanged: function () {
-    this.setData({
-      toastHidden: true
-    });
-  },
+
   //处理register的触发事件
   register: function (e) {
     var that = this;
@@ -54,13 +50,18 @@ Page({
       },
       success: function (res) {
 
-          that.setData({
-            toastHidden: false, //吐司  
-          });
-
+        wx.showToast({
+          title: '绑定成功！',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        });
+        setTimeout(function () {
           wx.redirectTo({
-            url: '/pages/student/queryCourses/queryCourses?sid=' + that.data.sId
+            url: '/pages/student/queryCourses/queryCourses?sId=' + that.data.sId
           })
+        }, 1000)
+          
         
       },
       fail: function (res) {

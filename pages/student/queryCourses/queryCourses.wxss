@@ -83,7 +83,12 @@
     background-color: #DFDFDF;
 }
 /*天气预报*/
-.weather{overflow: hidden;background: rgb(13, 227, 235);color: #58b; padding: 1%; position: relative}
+.weather{
+  overflow: hidden;
+  background: rgb(13, 227, 235);
+  color:rgb(62, 22, 207); 
+  padding: 1%; 
+  position: relative}
 .weather .section{ float: none; width: 80px; height: 80px; position: absolute; }
 /*.weather .aside{ float: right; width:40%; margin-top: 5%; font-size: 12px; }
 .weather .aside .temperature{ font-size: 36px; display: block;}*/

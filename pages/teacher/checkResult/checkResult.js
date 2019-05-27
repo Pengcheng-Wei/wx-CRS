@@ -55,16 +55,11 @@ Page({
           icon: 'succes',
           duration: 1000,
           mask: true
-        });
-        console.log(that.data.currentCnt);
-        
+        });  
         var num = ++that.data.currentCnt;
-        console.log(num);
         that.setData({
           currentCnt: num
         });
-
-        console.log(that.data.currentCnt);
       },
       fail: function (res) {
         console.log("调用API失败");

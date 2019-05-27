@@ -1,1 +1,21 @@
 /* pages/home/home.wxss */
+.userinfo-avatar {
+  width: 251rpx;
+  height: 251rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.fontStyle{
+  color: rebeccapurple;
+  font-size: 25px
+}
+.container1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  background-color:rgb(227, 231, 236);
+}

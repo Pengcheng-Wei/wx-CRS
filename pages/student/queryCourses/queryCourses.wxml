@@ -14,16 +14,17 @@
             <view class="other">
             
               <text>节次：{{course.cSession}}\n</text>
-              <text>课程名称：\n{{course.courseName}}\n</text>
+              <text>课程名称：\n《{{course.courseName}}》\n</text>
               <text>所在教室：{{course.classRoomName}}\n</text>
               <text>授课老师：{{course.tName}}\n</text>
 
             </view>
-            <button wx:if="{{course.cSession != '一二节'}}" disabled='true' class='buttonStyle' data-tid='{{course.tId}}' bindtap='calling' data-sid='{{student.sId}}'>进入点名</button>
+            <button wx:if="{{course.cSession != '一二节'}}" disabled='true' class='buttonStyle' 
+            data-tid='{{course.tId}}' bindtap='calling' data-sid='{{student.sId}}'>进入点名</button>
             <button wx:else class='buttonStyle' data-tid='{{course.tId}}' bindtap='calling' data-sid='{{student.sId}}'>进入点名</button>
 
       </view>
-                
+             
 </view>
 
 

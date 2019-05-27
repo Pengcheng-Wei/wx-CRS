@@ -19,8 +19,7 @@ App({
               js_code: res.code,
             },
             success(res) {
-
-              
+              console.log(res.data.bind)
               if (res.data.bind == 'false') {
                 wx.redirectTo({
                   url: '/pages/index/index?openid=' + res.data.openid
@@ -42,7 +41,7 @@ App({
                 }
                 
               }
-
+              
             },
             fail() {
               console.log("失败!!!")
@@ -52,7 +51,7 @@ App({
         } else {
           console.log('登录失败！' + res.errMsg)
         }
-        
+       
       }
     }),
     // 获取用户信息
