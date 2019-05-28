@@ -49,18 +49,26 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
-
-        wx.showToast({
-          title: '绑定成功！',
-          icon: 'succes',
-          duration: 1000,
-          mask: true
-        });
-        setTimeout(function () {
-          wx.redirectTo({
-            url: '/pages/student/queryCourses/queryCourses?sId=' + that.data.sId
-          })
-        }, 1000)
+        if (res.data.isExisted == true){
+          wx.showToast({
+            title: '绑定成功！',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          });
+          setTimeout(function () {
+            wx.redirectTo({
+              url: '/pages/student/queryCourses/queryCourses?sId=' + that.data.sId
+            })
+          }, 1000)
+        } else if (res.data.isExisted == false){
+          wx.showToast({
+            title: '查无此人！',
+            icon: 'loading',
+            duration: 1000,
+            mask: true
+          });
+        }
           
         
       },

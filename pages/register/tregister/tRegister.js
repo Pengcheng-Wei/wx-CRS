@@ -49,14 +49,14 @@ Page({
         email: this.data.tId,
         role: this.data.role,
         openid: this.data.openid,
-        rememberMe: true
+        rememberMe: false
       },
       method: 'post',//定义传到后台接受的是post方法还是get方法
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
-        if (res.statusCode == 200) {
+        if (res.data.isExisted == true) {
           wx.showToast({
             title: '绑定成功！',
             icon: 'succes',
@@ -65,11 +65,16 @@ Page({
           });
           setTimeout(function () {
             wx.redirectTo({
-              url: '/pages/teacher/queryCourses/queryCourses?tId=' + that.data.tId
+              url: '/pages/student/queryCourses/queryCourses?sId=' + that.data.sId
             })
           }, 1000)
-          
-          
+        } else if (res.data.isExisted == false) {
+          wx.showToast({
+            title: '查无此人！',
+            icon: 'loading',
+            duration: 1000,
+            mask: true
+          });
         }
       },
       fail: function (res) {
