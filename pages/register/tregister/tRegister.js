@@ -65,7 +65,7 @@ Page({
           });
           setTimeout(function () {
             wx.redirectTo({
-              url: '/pages/student/queryCourses/queryCourses?sId=' + that.data.sId
+              url: '/pages/teacher/queryCourses/queryCourses?sId=' + that.data.sId
             })
           }, 1000)
         } else if (res.data.isExisted == false) {
