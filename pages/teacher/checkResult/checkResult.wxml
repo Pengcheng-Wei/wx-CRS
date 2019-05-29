@@ -16,7 +16,8 @@
     </view>
       
     <view class=''>
-      <button class="yidao" bindtap='buqian' data-sid='{{student.sId}}' >补签</button>
+      <button   class="yidao" bindtap='buqian' data-sid='{{student.sId}}'>补签</button>
+ 
       </view>
 	</view>
 
